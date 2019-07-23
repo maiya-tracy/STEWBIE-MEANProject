@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/public/dist/public'));
 
 var mongoose = require('mongoose');
 var uniqueValidator = require('mongoose-unique-validator');
-mongoose.connect('mongodb://localhost/restaurants');
+mongoose.connect('mongodb://localhost/stewbie');
 
 app.use(bodyParser.urlencoded({
   extended: true

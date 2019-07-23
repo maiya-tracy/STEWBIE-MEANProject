@@ -1,0 +1,13 @@
+.box {
+  border: solid 5px lightblue;
+  margin: auto;
+  width: 100%;
+  height: 500px;
+  padding: 10px;
+}
+.container {
+  margin: auto;
+}
+.btn {
+  margin: 20px 5px;
+}

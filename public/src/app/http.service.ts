@@ -8,25 +8,25 @@ export class HttpService {
 
   constructor(private _http: HttpClient) { }
 
-  addRestaurant(newRestaurant) {
-    return this._http.post('/restaurant', newRestaurant)
-  }
-  deleteRestaurant(restaurantID) {
-    return this._http.delete(`/restaurant/${restaurantID}`)
-  }
-  editRestaurant(currentRestaurant) {
-    return this._http.put(`/restaurant/${currentRestaurant._id}`, currentRestaurant)
-  }
-  getRestaurants() {
-    return this._http.get('/restaurant')
-  }
-  findOneRestaurant(restaurantID) {
-    return this._http.get(`/restaurant/${restaurantID}`)
-  }
-  addReview(currentReview, restid) {
-    return this._http.put(`/review/${restid}`, currentReview)
-  }
-  getReviews(restid) {
-    return this._http.get(`/review/${restid}`)
-  }
+  // addRestaurant(newRestaurant) {
+  //   return this._http.post('/restaurant', newRestaurant)
+  // }
+  // deleteRestaurant(restaurantID) {
+  //   return this._http.delete(`/restaurant/${restaurantID}`)
+  // }
+  // editRestaurant(currentRestaurant) {
+  //   return this._http.put(`/restaurant/${currentRestaurant._id}`, currentRestaurant)
+  // }
+  // getRestaurants() {
+  //   return this._http.get('/restaurant')
+  // }
+  // findOneRestaurant(restaurantID) {
+  //   return this._http.get(`/restaurant/${restaurantID}`)
+  // }
+  // addReview(currentReview, restid) {
+  //   return this._http.put(`/review/${restid}`, currentReview)
+  // }
+  // getReviews(restid) {
+  //   return this._http.get(`/review/${restid}`)
+  // }
 }
