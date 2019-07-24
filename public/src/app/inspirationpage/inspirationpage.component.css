@@ -1,0 +1,15 @@
+.first_slide{
+    background-color: blue;
+}
+
+.second_slide{
+    background-color: red;
+}
+
+.third_slide{
+    background-color: green;
+}
+
+.slides{
+    height: 50%;
+}
