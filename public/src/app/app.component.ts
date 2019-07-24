@@ -10,4 +10,5 @@ import { HttpService } from './http.service';
 export class AppComponent {
   title = 'public';
   constructor(private _route: ActivatedRoute, private _router: Router) { }
+
 }

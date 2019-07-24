@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-inspirationpage',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inspirationpage.component.css']
 })
 export class InspirationpageComponent implements OnInit {
-
-  constructor() { }
-
+  search_bar: any;
+  constructor(private _route: ActivatedRoute, private _router: Router, private _httpService: HttpService) { }
   ngOnInit() {
+    this.search_bar = "london";
+    this.getPlaces(this.search_bar);
+  }
+  getPlaces(search_bar) {
+    this._httpService.getPlaces(search_bar).subscribe(data => {
+      console.log("**********", data);
+    })
   }
 
 }
