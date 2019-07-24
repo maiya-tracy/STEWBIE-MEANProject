@@ -13,12 +13,9 @@ var mongoose = require('mongoose');
 var uniqueValidator = require('mongoose-unique-validator');
 mongoose.connect('mongodb://localhost/stewbie');
 
+
 //skyscanner api
 var unirest = require('unirest');
-unirest.post("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com").header("X-RapidAPI-Key", "efa1e54accmsh0ee65ac19151100p135c17jsn791d4358b1eb").end(function(result) {
-  console.log(result.status, result.headers, result.body);
-});
-
 
 
 app.use(bodyParser.urlencoded({
@@ -68,15 +65,9 @@ mongoose.model('Restaurant', RestaurantSchema);
 var Restaurant = mongoose.model('Restaurant');
 RestaurantSchema.plugin(uniqueValidator);
 
-app.get('/places', (req,res) => {
-  unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/USA/USD/en-US/?query=london")
-    .header("X-RapidAPI-Host", "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com")
-    .header("X-RapidAPI-Key", "efa1e54accmsh0ee65ac19151100p135c17jsn791d4358b1eb")
-    .end(function(result) {
-      console.log(result.status, result.headers, result.body);
-      return result.body;
-    });
-})
+
+
+
 
 
 

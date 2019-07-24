@@ -6,11 +6,33 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpService {
 
+
   constructor(private _http: HttpClient) { }
 
-getPlaces(search_bar) {
-  return this._http.post('/places', search_bar)
-}
+  getPlaces(search_bar) {
+    unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/USA/USD/en-US/?query=london")
+      .header("X-RapidAPI-Host", "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com")
+      .header("X-RapidAPI-Key", "efa1e54accmsh0ee65ac19151100p135c17jsn791d4358b1eb")
+      .end(function(result) {
+        console.log('****************************************************************************************')
+        console.log(result.status, result.headers, result.body);
+        console.log('****************************************************************************************')
+        return result.body;
+      });
+  }
+  getQuotes(search_bar) {
+    unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/anytime?inboundpartialdate=anytime")
+      .header("X-RapidAPI-Host", "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com")
+      .header("X-RapidAPI-Key", "efa1e54accmsh0ee65ac19151100p135c17jsn791d4358b1eb")
+      .end(function(result) {
+        console.log(result.status, result.headers, result.body);
+        return (result.body)
+      });
+  }
+
+
+
+
 
   // addRestaurant(newRestaurant) {
   //   return this._http.post('/restaurant', newRestaurant)
