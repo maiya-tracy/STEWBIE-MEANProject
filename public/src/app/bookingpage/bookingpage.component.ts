@@ -26,4 +26,11 @@ export class BookingpageComponent implements OnInit {
       this.weather["description"] = data['weather'][0]['description'];
     })
   }
+
+  getYelp() {
+    this._httpService.getYelp(this.alias).subscribe(data => {
+      console.log("Retrieved entertainment in city", data)
+      this.alias["entertainment"] = data;
+    })
+  }
 }

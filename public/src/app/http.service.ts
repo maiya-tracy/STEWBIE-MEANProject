@@ -6,37 +6,25 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpService {
 
-
   constructor(private _http: HttpClient) { }
 
-  getPlaces(search_bar) {
-    unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/USA/USD/en-US/?query=london")
-      .header("X-RapidAPI-Host", "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com")
-      .header("X-RapidAPI-Key", "efa1e54accmsh0ee65ac19151100p135c17jsn791d4358b1eb")
-      .end(function(result) {
-        console.log('****************************************************************************************')
-        console.log(result.status, result.headers, result.body);
-        console.log('****************************************************************************************')
-        return result.body;
-      });
-  }
-  getQuotes(search_bar) {
-    unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/anytime?inboundpartialdate=anytime")
-      .header("X-RapidAPI-Host", "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com")
-      .header("X-RapidAPI-Key", "efa1e54accmsh0ee65ac19151100p135c17jsn791d4358b1eb")
-      .end(function(result) {
-        console.log(result.status, result.headers, result.body);
-        return (result.body)
-      });
-  }
-
-
-
-
+getPlaces(search_bar) {
+  return this._http.post('/places', search_bar)
+}
 
 
 getWeather(city_name) {
-  return this._http.get(`#`)
+  return this._http.get(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&APPID=d4c3b5da6a381136b579ef19ed874c1c&units=imperial
+  `)
+}
+
+getYelp() {
+  return this._http.get('https://api.yelp.com/v3/categories/{alias}')
+}
+
+
+getSygic() {
+  return this._http.get('https://api.sygictravelapi.com/{version}/{language}')
 }
 
 

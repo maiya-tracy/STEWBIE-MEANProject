@@ -28,3 +28,7 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.carousel-item h5{
+    padding: 3pt;
+}
