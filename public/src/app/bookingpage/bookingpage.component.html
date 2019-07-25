@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 
 <div class="container">
   <div class="top">
@@ -11,7 +10,6 @@
       <div class="col">
         <input type="text" class="form-control col-6 mb-2">
       </div>
-=======
         <div class="row header">
                 <h2>Where to?</h2>
             <form (submit)="getWeather()" class="form-inline">
@@ -22,7 +20,6 @@
             </form>
         </div>
 
->>>>>>> 8f07820a2d01ce88c9956cc6e3a53b9c676e69c2
     </div>
 
 
@@ -45,94 +42,6 @@
       <div class="col-sm middle" id="box3">
         Skyscanner Flights
         <img width="200" alt="Skyscanner_api" src="">
-
-        <div ng-app='flightsApp'>
-          <div class="p+">
-            <span class="fs-display-3 display-block">Get Lost</span>
-            <span class="fs-title display-block">goofing around with @appa</span>
-          </div>
-
-          <div ng-controller="MainCtrl">
-            <div class="mt++" flex-container="row" flex-gutter="24">
-
-              <div flex-item>
-                <lx-select ng-model="info.origin" placeholder="Starting airport" choices="cities" floating-label>
-                  <lx-select-selected>
-                    {{ $selected.name }} - {{ $selected.code }}
-                  </lx-select-selected>
-
-                  <lx-select-choices>
-                    {{ $choice.name }} - {{ $choice.code }}
-                  </lx-select-choices>
-                </lx-select>
-              </div>
-
-              <div flex-item>
-                <lx-select ng-model="info.maxfare" placeholder="Budget" choices="prices" floating-label>
-                  <lx-select-selected>
-                    {{ $selected.show }}
-                  </lx-select-selected>
-
-                  <lx-select-choices>
-                    {{ $choice.show }}
-                  </lx-select-choices>
-                </lx-select>
-              </div>
-            </div>
-            <div class="mt++" flex-container="row" flex-gutter="24">
-              <div flex-item>
-                <form>
-                  <lx-date-picker model="info.departuredate" label="Start date" locale="en" fixed-label="true" icon="calendar"></lx-date-picker>
-                </form>
-              </div>
-
-              <div flex-item>
-                <form>
-                  <lx-date-picker model="info.returndate" label="End date" locale="en" fixed-label="true" icon="calendar"></lx-date-picker>
-                </form>
-              </div>
-            </div>
-
-            <div class="mt++" flex-container="row" flex-gutter="24">
-              <div flex-item>
-                <div flex-container="column" flex-align="space-between center">
-                  <button class="btn btn--m btn--blue btn--raised" lx-ripple ng-click="submit()">Submit</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt++" flex-container="row" flex-gutter="24" flex-wrap ng-show="results">
-              <div ng-show="results.status" class="p++">
-                <div flex-item="6">
-                  <span class="fs-title display-block mb">Places you can go...</span>
-                  <div class="divider divider--dark"></div>
-                  <ul class="list mt++">
-                    <div ng-repeat="d in fareinfo | orderBy: 'LowestFare'">
-                      <li class="list-row list-row--has-separator">
-                        <div class="list-row__content">
-                          <span>{{d.LowestFare}}, {{d.DestinationLocation}}</span>
-                        </div>
-                      </li>
-                    </div>
-                  </ul>
-                </div>
-              </div>
-
-              <div ng-hide="results.status" class="p++">
-                <h2>Error</h2>
-                {{error}}
-              </div>
-            </div>
-
-            <script src="node_modules/jquery/dist/jquery.js"></script>
-            <script src="node_modules/velocity/velocity.js"></script>
-            <script src="node_modules/moment/min/moment-with-locales.js"></script>
-            <script src="node_modules/angular/angular.js"></script>
-            <script src="node_modules/official-lumx/dist/lumx.js"></script>
-            <script src="./app.js"></script>
-          </div>
-        </div>
-
 
       </div>
 
