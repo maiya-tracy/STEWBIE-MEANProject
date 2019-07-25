@@ -12,6 +12,14 @@ getPlaces(search_bar) {
   return this._http.post('/places', search_bar)
 }
 
+
+getWeather(city_name) {
+  return this._http.get(`#`)
+}
+
+
+
+
   // addRestaurant(newRestaurant) {
   //   return this._http.post('/restaurant', newRestaurant)
   // }

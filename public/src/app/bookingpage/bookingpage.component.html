@@ -1,15 +1,15 @@
 <div class="container">
     <div class="top">
 
-        <div class="row">
-            <div class="col">
+        <div class="row header">
                 <h2>Where to?</h2>
-            </div>
-            <div class="col">
-                <input type="text" class="form-control col-6 mb-2">
-            </div>
+            <form (submit)="getWeather()" class="form-inline">
+                <div class="col submit">
+                    <input type="text" class="form-control col-6 mb-2" placeholder="City" name="city_name" [(ngModel)]="city_name" />
+                    <button type="submit" class="btn btn-success btn-go ml-3">Let's Go!</button>
+                </div>
+            </form>
         </div>
-
 
     </div>
 
@@ -45,17 +45,18 @@
             <h2>When?</h2>
         </div>
         <div class="col">
-           From: <input type="date" class="form-control col-4 mb-2 date"> Until: <input type="date" class="form-control col-4 mb-2 date">
+            From: <input type="date" class="form-control col-4 mb-2 date"> Until: <input type="date"
+                class="form-control col-4 mb-2 date">
         </div>
     </div>
 
     <div class="row">
-            <div class="col">
-                <h2>Weather Forecast:</h2>
-            </div>
-            <div class="col">
-                <input type="text" class="form-control col-10 mb-2" placeholder="Weather Api forecast populates based on dates above">
-            </div>
+        <div class="col">
+            <h2>Current Weather Forecast:</h2>
         </div>
+        <div class="col form-inline">
+            Condition:  <div id="input_box" class="col-4">{{ weather.description }}</div>  Temperature:  <div id="input_box" class="col-4">{{ weather.temperature }}</div> 
+        </div>
+    </div>
 
 </div>
