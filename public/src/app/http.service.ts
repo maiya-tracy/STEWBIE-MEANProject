@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { SabreDevStudio } from 'sabre-dev-studio';
 
 @Injectable({
   providedIn: 'root'
@@ -7,28 +8,34 @@ import { HttpClient } from '@angular/common/http';
 export class HttpService {
 
 
-  constructor(private _http: HttpClient) { }
+  constructor(
+    private _http: HttpClient
+  ) {
 
-  getPlaces(search_bar) {
-    unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/USA/USD/en-US/?query=london")
-      .header("X-RapidAPI-Host", "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com")
-      .header("X-RapidAPI-Key", "efa1e54accmsh0ee65ac19151100p135c17jsn791d4358b1eb")
-      .end(function(result) {
-        console.log('****************************************************************************************')
-        console.log(result.status, result.headers, result.body);
-        console.log('****************************************************************************************')
-        return result.body;
-      });
+    // this.getData();
   }
-  getQuotes(search_bar) {
-    unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/anytime?inboundpartialdate=anytime")
-      .header("X-RapidAPI-Host", "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com")
-      .header("X-RapidAPI-Key", "efa1e54accmsh0ee65ac19151100p135c17jsn791d4358b1eb")
-      .end(function(result) {
-        console.log(result.status, result.headers, result.body);
-        return (result.body)
-      });
-  }
+
+  // getData() {
+  //   console.log("***getdata*******")
+  //   return this._http.get('/api/v1/cities')
+  //   // var sabre_dev_studio = new SabreDevStudio({
+  //   //   client_id:     'V1:k2q2wdgj6ccgvg1o:DEVCENTER:EXT',
+  //   //   client_secret: '0o1IjbTO',
+  //   //   uri:           'https://api.test.sabre.com'
+  //   // });
+  //   // var options = {};
+  //   // var callback = function(error, data) {
+  //   //   if (error) {
+  //   //     console.log(error);
+  //   //   } else {
+  //   //     console.log(JSON.stringify(JSON.parse(data)));
+  //   //   }
+  //   // };
+  //   //
+  //   // sabre_dev_studio.get('/v2/shop/flights/fares?origin=SFO&lengthofstay=3%2C6%2C8&earliestdeparturedate=2019-07-29&latestdeparturedate=2019-08-03&location=ES%2CMX&minfare=250&maxfare=550&pointofsalecountry=US&topdestinations=5&pricepermile=0.2', options, callback);
+  // }
+
+
 
 
 

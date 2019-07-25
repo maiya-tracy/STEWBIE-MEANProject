@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost/stewbie');
 
 
 //skyscanner api
-var unirest = require('unirest');
+// var unirest = require('unirest');
 
 
 app.use(bodyParser.urlencoded({
@@ -68,8 +68,73 @@ RestaurantSchema.plugin(uniqueValidator);
 
 
 
+var SabreDevStudio = require('sabre-dev-studio');
+var sabre_dev_studio = new SabreDevStudio({
+  client_id:     'V1:k2q2wdgj6ccgvg1o:DEVCENTER:EXT',
+  client_secret: '0o1IjbTO',
+  uri:           'https://api.test.sabre.com'
+});
+var options = {};
+var callback = function(error, data) {
+  if (error) {
+    console.log("I am a pretty pretty error")
+    console.log(error);
+  } else {
+    console.log("I am a pretty pretty success message")
+    console.log(JSON.stringify(JSON.parse(data)));
+  }
+};
 
+app.get('/sabredata', (req,res) =>  {
+  sabre_dev_studio.get('/v2/shop/flights/fares?origin=SFO&lengthofstay=3%2C6%2C8&earliestdeparturedate=2019-07-29&latestdeparturedate=2019-08-03&location=ES%2CMX&minfare=250&maxfare=550&pointofsalecountry=US&topdestinations=5&pricepermile=0.15', options, callback);
+  return sabre_dev_studio.get('/v1/lists/supported/cities', options, callback);
+  sabre_dev_studio.get('/v1/shop/flights/fares?origin=NYC&departuredate=2015-05-25&returndate=2015-05-30&maxfare=200', options, callback);
+})
 
+function sabreCall(q, res) {
+  sabre_dev_studio.get(q, options, function(err, data) {
+    response(res, err, data);
+  });
+}
+
+app.get('/api/v1/cities', function(req,res) {
+  sabreCall('/v1/lists/supported/cities', res);
+});
+
+app.get('/api/v1/places', function(req,res) {
+  sabreCall('/v1/shop/flights/fares?origin=' + req.query.origin +
+  '&departuredate=' + req.query.departuredate +
+  '&returndate=' + req.query.returndate +
+  '&maxfare=' + req.query.maxfare, res);
+});
+
+function response(res, err, data) {
+  if (err) {
+    res.status(200).send({
+      'status': false,
+      'message': 'Error',
+      'info': err
+    });
+  } else {
+    res.status(200).send({
+      'status': true,
+      'message': 'Success',
+      'info': data
+    });
+  }
+}
+
+//
+// app.get('/api/v1/cities', function(req,res) {
+//   sabreCall('/v1/lists/supported/cities', res);
+// });
+//
+// app.get('/api/v1/places', function(req,res) {
+//   sabreCall('/v1/shop/flights/fares?origin=' + req.query.origin +
+//   '&departuredate=' + req.query.departuredate +
+//   '&returndate=' + req.query.returndate +
+//   '&maxfare=' + req.query.maxfare, res);
+// });
 
 
 

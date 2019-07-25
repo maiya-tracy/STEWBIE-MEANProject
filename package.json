@@ -17,8 +17,9 @@
     "express-session": "^1.16.2",
     "mongoose": "^5.6.6",
     "mongoose-unique-validator": "^2.0.3",
+    "official-lumx": "^1.9.1",
     "path": "^0.12.7",
-    "socket.io": "^2.2.0",
-    "unirest": "^0.6.0"
+    "sabre-dev-studio": "^1.2.0",
+    "socket.io": "^2.2.0"
   }
 }
