@@ -1,6 +1,7 @@
 #rate_your_trip{
     background-image: url("/assets/img/scroll_background_page.png");
-    background-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .rate_card{
@@ -11,23 +12,25 @@
     height: 300pt;
     padding: 20pt;
     background-image: url("/assets/img/post_apoc_city.jpg");
-    background-size: 100%;
-    color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .reviews{
     margin-top: 15pt;
 }
 .col-first-review{
-    /* background-color: blue; */
+    background-color: blue;
     height: 50pt;
     border-bottom: 2pt solid black;
     color: white;
+    padding-top: 5pt;
 }
 
 .col-second-review{
-    /* background-color: red; */
+    background-color: red;
     height: 50pt;
     border-bottom: 2pt solid black;
     color: white;
+    padding-top: 5pt;
 }

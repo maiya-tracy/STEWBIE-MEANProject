@@ -1,15 +1,30 @@
 .first_slide{
-    background-color: blue;
+    background-image: url("/assets/img/samoa.jpg");
+    background-size: cover;
+    width: 100%;
+    background-repeat: no-repeat;
 }
 
 .second_slide{
-    background-color: red;
+    background-image: url("/assets/img/chicago.jpg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .third_slide{
-    background-color: green;
+    background-image: url("/assets/img/new_jersey_pic.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.slides{
-    height: 50%;
+.fourth_slide{
+    background-image: url("/assets/img/leaning_tower_pisa.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.fifth_slide{
+    background-image: url("/assets/img/great_barrier.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }

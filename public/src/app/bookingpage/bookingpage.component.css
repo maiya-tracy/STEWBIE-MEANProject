@@ -1,16 +1,28 @@
 .container{
     padding-top: 10pt;
 }
+
+.header{
+    margin-left: 30%;
+}
+
+.submit{
+    display: inline-block;
+}
+
+
 #box1{
     width: 125pt;
     border: 2px solid black;
     background-color: red;
 }
+
 #box2{
     width: 125pt;
     border: 2px solid black;
     background-color: orange;
 }
+
 #box3{
     width: 125pt;
     border: 2px solid black;
@@ -21,6 +33,7 @@
     height: 275px;
     margin-top: 10pt;
 }
+
 .footer{
     height: 80px;
     margin-top: 25pt;
