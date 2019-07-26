@@ -14,17 +14,16 @@ getPlaces(search_bar) {
 
 
 getWeather(city_name) {
-  return this._http.get(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&APPID=d4c3b5da6a381136b579ef19ed874c1c&units=imperial
-  `)
+  return this._http.get('')
 }
 
 getYelp() {
-  return this._http.get('https://api.yelp.com/v3/categories/{alias}')
+  return this._http.get('')
 }
 
 
 getSygic() {
-  return this._http.get('https://api.sygictravelapi.com/{version}/{language}')
+  return this._http.get('')
 }
 
 
