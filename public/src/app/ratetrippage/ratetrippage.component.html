@@ -1,8 +1,3 @@
-
-
-
-
-
 <div class="container">
   <div class="row">
     <div id="rate_your_trip" class="col rate_your_trip">
@@ -65,6 +60,18 @@
             <div class="col-second-review col-8">
               {{rating.location}}:
               {{rating.adventure}}
+              <ng-container *ngFor="let i of [].constructor(rating.adventure)"><img width="20" alt="mountain_peak" src="assets/img/mountain_peak.png"></ng-container>
+              {{rating.budget}}
+              <ng-container *ngFor="let i of [].constructor(rating.budget)"><img width="20" alt="dollar_sign" src="assets/img/money.png"></ng-container>
+              {{rating.dodos}}
+              <ng-container *ngFor="let i of [].constructor(rating.dodos)"><img width="20" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg"></ng-container>
+              {{rating.transportation}}
+              <ng-container *ngFor="let i of [].constructor(rating.transportation)">
+                <img *ngIf="rating.transportation.includes('bus')" width="20" alt="public transportation" src="assets/img/busimg.png">
+                <img *ngIf="rating.transportation.includes('car')" width="20" alt="public transportation" src="assets/img/car.png">
+                <img *ngIf="rating.transportation.includes('walking')" width="20" alt="public transportation" src="assets/img/walking.jpg">
+              </ng-container>
+
             </div>
           </div>
 
