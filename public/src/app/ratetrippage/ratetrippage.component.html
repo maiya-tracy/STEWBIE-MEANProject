@@ -71,7 +71,7 @@
                 <img *ngIf="rating.transportation.includes('car')" width="20" alt="car" src="assets/img/car.png">
                 <img *ngIf="rating.transportation.includes('walking')" width="20" alt="walking" src="assets/img/walking.jpg">
               </ng-container>
-              {{rating.culture}}
+              <!-- {{rating.culture}} -->
               <ng-container *ngFor="let i of [].constructor(rating.culture)">
                 <img *ngIf="rating.culture.includes('cathedral')" width="20" alt="cathedral" src="assets/img/cathedral.jpg">
                 <img *ngIf="rating.culture.includes('art')" width="20" alt="art" src="assets/img/art.png">
