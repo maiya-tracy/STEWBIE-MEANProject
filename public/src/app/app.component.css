@@ -2,8 +2,16 @@
    border-radius: 10%;
  }
 
+
+.nav-item a{
+  color: white;
+}
+
+
 .box {
-  border: solid 5px  #3C6D7E;
+  border-left: solid 5px  #1B3849;
+  border-right: solid 5px  #1B3849;
+  border-bottom: solid 5px  #1B3849;
   margin: auto;
   width: 100%;
   min-height: 650px;
