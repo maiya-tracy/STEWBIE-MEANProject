@@ -1,9 +1,11 @@
-.navbar text{
-  color: lightblue;
-}
+.navbar-default {
+  background-color:teal;
+  background-image: none;
+  background-repeat: no-repeat;
+ }
 
 .box {
-  border: solid 5px lightblue;
+  border: solid 5px  #3C6D7E;
   margin: auto;
   width: 100%;
   min-height: 650px;

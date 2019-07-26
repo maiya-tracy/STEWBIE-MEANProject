@@ -14,7 +14,7 @@ getPlaces(search_bar) {
 
 
 getWeather(city_name) {
-  return this._http.get('')
+  return this._http.get(`#`)
 }
 
 getYelp() {
