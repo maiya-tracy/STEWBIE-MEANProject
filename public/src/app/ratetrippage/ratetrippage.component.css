@@ -20,7 +20,7 @@
     margin-top: 15pt;
 }
 .col-first-review{
-    background-color: blue;
+    background-color: rgba(50, 115, 220, 0.5);
     height: 50pt;
     border-bottom: 2pt solid black;
     color: white;
@@ -28,7 +28,7 @@
 }
 
 .col-second-review{
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.5);
     height: 50pt;
     border-bottom: 2pt solid black;
     color: white;

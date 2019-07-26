@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost/stewbie');
 
 
 //skyscanner api
-var unirest = require('unirest');
+// var unirest = require('unirest');
 
 
 app.use(bodyParser.urlencoded({
@@ -25,56 +25,45 @@ app.use(bodyParser.json({
   limit: '5mb'
 }));
 
-var ReviewSchema = new mongoose.Schema({
-  content: {
-    type: String,
-    required: [true, "Please enter a review"],
-    minlength: [3, "Content must be at least 3 characters long"]
+var RatingSchema = new mongoose.Schema({
+  adventure: {
+    type: String
   },
-  rating: {
-    type: Number,
-    required: [true, "Please select a rating"]
+  budget: {
+    type: String
+  },
+  transportation: {
+    type: Array
+  },
+  culture: {
+    type: Array
+  },
+  dodos: {
+    type: String
+  },
+  review: {
+    type: String,
+    required: [true, "Must enter a review"]
   },
   name: {
     type: String,
-    required: [true, "Please enter your name"],
-    minlength: [3, "Name must be at least 3 characters long"]
-  }
-}, {
-  timestamps: true
-});
-const Review = mongoose.model('Review', ReviewSchema);
-
-var RestaurantSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, "Must enter a restaurant"],
-    minlength: [3, "Name must be longer than 3 characters"],
-    unique: true
+    required: [true, "Must enter your name"]
   },
-  cuisine: {
+  location: {
     type: String,
-    required: [true, "Must enter a cuisine type"],
-    minlength: [3, "Cuisine must be longer than 3 characters"]
+    required: [true, "Must enter a location"]
   },
-  reviews: [ReviewSchema]
 }, {
   timestamps: true
 })
-mongoose.model('Restaurant', RestaurantSchema);
-var Restaurant = mongoose.model('Restaurant');
-RestaurantSchema.plugin(uniqueValidator);
+mongoose.model('Rating', RatingSchema);
+var Rating = mongoose.model('Rating');
+// RestaurantSchema.plugin(uniqueValidator);
 
 
 
-
-
-
-
-
-
-app.get('/restaurant', (req, res) => {
-  Restaurant.find({}, (err, restaurants) => {
+app.post('/ratings', (req, res) => {
+  Rating.create(req.body, (err, ratings) => {
     if (err) {
       console.log("Returned error", err);
       res.json({
@@ -84,17 +73,13 @@ app.get('/restaurant', (req, res) => {
     } else {
       res.json({
         message: "Success",
-        data: restaurants
+        data: ratings
       })
     }
   })
 })
-
-app.get('/restaurant/:id', (req, res) => {
-  var ObjectId = mongoose.Types.ObjectId
-  Restaurant.findOne({
-    _id: new ObjectId(req.params.id)
-  }, (err, restaurants) => {
+app.get('/ratings', (req, res) => {
+  Rating.find({}, (err, ratings) => {
     if (err) {
       console.log("Returned error", err);
       res.json({
@@ -104,108 +89,13 @@ app.get('/restaurant/:id', (req, res) => {
     } else {
       res.json({
         message: "Success",
-        data: restaurants
+        data: ratings
       })
     }
   })
 })
-
-app.post('/restaurant', (req, res) => {
-  Restaurant.create(req.body, (err, restaurants) => {
-    if (err) {
-      console.log("Returned error", err);
-      res.json({
-        message: "Error",
-        error: err
-      })
-    } else {
-      res.json({
-        message: "Success",
-        data: restaurants
-      })
-    }
-  })
-})
-
-app.put('/restaurant/:id', (req, res) => {
-  Restaurant.findByIdAndUpdate(req.params.id, req.body, {
-    runValidators: true,
-    new: true,
-    context: 'query'
-  }, (err, restaurants) => {
-    if (err) {
-      console.log("Returned error", err);
-      res.json({
-        message: "Error",
-        error: err
-      })
-    } else {
-      res.json({
-        message: "Success",
-        data: restaurants
-      })
-    }
-  })
-})
-
-app.put('/review/:restid', (req, res) => {
-  Review.create(req.body, (err, review) => {
-    if (err) {
-      console.log(req.body)
-      console.log("Error!", err);
-      res.json({
-        message: "Error",
-        'err': err
-      });
-    } else {
-      Restaurant.findOneAndUpdate({
-        _id: req.params.restid
-      }, {
-        $push: {
-          reviews: review
-        }
-      }, {
-        multi: true
-      }, (err, review) => {
-        if (err) {
-          console.log("Error!", err);
-          res.json({
-            message: "Error",
-            'err': err
-          });
-        } else {
-          res.json({
-            message: "Success",
-            'review': review
-          })
-        }
-      })
-    }
-  })
-})
-
-app.get('/review/:restid', (req, res) => {
-  var ObjectId = mongoose.Types.ObjectId
-  Restaurant.find({
-    _id: new ObjectId(req.params.restid)
-  }, (err, restaurants) => {
-    if (err) {
-      console.log("Returned error", err);
-      res.json({
-        message: "Error",
-        error: err
-      })
-    } else {
-      res.json({
-        message: "Success",
-        data: restaurants[0].reviews
-      })
-    }
-  })
-})
-
-app.delete('/restaurant/:id', (req, res) => {
-  Restaurant.findByIdAndRemove(req.params.id, (err) => {
+app.delete('/ratings/:id', (req, res) => {
+  Rating.findByIdAndRemove(req.params.id, (err) => {
     if (err) {
       console.log("Returned error", err);
       res.json({
@@ -219,6 +109,155 @@ app.delete('/restaurant/:id', (req, res) => {
     }
   })
 })
+
+
+//
+// app.get('/restaurant', (req, res) => {
+//   Restaurant.find({}, (err, restaurants) => {
+//     if (err) {
+//       console.log("Returned error", err);
+//       res.json({
+//         message: "Error",
+//         error: err
+//       })
+//     } else {
+//       res.json({
+//         message: "Success",
+//         data: restaurants
+//       })
+//     }
+//   })
+// })
+//
+// app.get('/restaurant/:id', (req, res) => {
+//   var ObjectId = mongoose.Types.ObjectId
+//   Restaurant.findOne({
+//     _id: new ObjectId(req.params.id)
+//   }, (err, restaurants) => {
+//     if (err) {
+//       console.log("Returned error", err);
+//       res.json({
+//         message: "Error",
+//         error: err
+//       })
+//     } else {
+//       res.json({
+//         message: "Success",
+//         data: restaurants
+//       })
+//     }
+//   })
+// })
+//
+// app.post('/restaurant', (req, res) => {
+//   Restaurant.create(req.body, (err, restaurants) => {
+//     if (err) {
+//       console.log("Returned error", err);
+//       res.json({
+//         message: "Error",
+//         error: err
+//       })
+//     } else {
+//       res.json({
+//         message: "Success",
+//         data: restaurants
+//       })
+//     }
+//   })
+// })
+//
+// app.put('/restaurant/:id', (req, res) => {
+//   Restaurant.findByIdAndUpdate(req.params.id, req.body, {
+//     runValidators: true,
+//     new: true,
+//     context: 'query'
+//   }, (err, restaurants) => {
+//     if (err) {
+//       console.log("Returned error", err);
+//       res.json({
+//         message: "Error",
+//         error: err
+//       })
+//     } else {
+//       res.json({
+//         message: "Success",
+//         data: restaurants
+//       })
+//     }
+//   })
+// })
+//
+// app.put('/review/:restid', (req, res) => {
+//   Review.create(req.body, (err, review) => {
+//     if (err) {
+//       console.log(req.body)
+//       console.log("Error!", err);
+//       res.json({
+//         message: "Error",
+//         'err': err
+//       });
+//     } else {
+//       Restaurant.findOneAndUpdate({
+//         _id: req.params.restid
+//       }, {
+//         $push: {
+//           reviews: review
+//         }
+//       }, {
+//         multi: true
+//       }, (err, review) => {
+//         if (err) {
+//           console.log("Error!", err);
+//           res.json({
+//             message: "Error",
+//             'err': err
+//           });
+//         } else {
+//           res.json({
+//             message: "Success",
+//             'review': review
+//           })
+//         }
+//       })
+//     }
+//   })
+// })
+//
+// app.get('/review/:restid', (req, res) => {
+//   var ObjectId = mongoose.Types.ObjectId
+//   Restaurant.find({
+//     _id: new ObjectId(req.params.restid)
+//   }, (err, restaurants) => {
+//     if (err) {
+//       console.log("Returned error", err);
+//       res.json({
+//         message: "Error",
+//         error: err
+//       })
+//     } else {
+//       res.json({
+//         message: "Success",
+//         data: restaurants[0].reviews
+//       })
+//     }
+//   })
+// })
+//
+// app.delete('/restaurant/:id', (req, res) => {
+//   Restaurant.findByIdAndRemove(req.params.id, (err) => {
+//     if (err) {
+//       console.log("Returned error", err);
+//       res.json({
+//         message: "Error",
+//         error: err
+//       })
+//     } else {
+//       res.json({
+//         message: "Success"
+//       })
+//     }
+//   })
+// })
 
 app.all("*", (req, res, next) => {
   res.sendFile(path.resolve("./public/dist/public/index.html"))
