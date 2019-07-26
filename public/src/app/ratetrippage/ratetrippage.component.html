@@ -63,6 +63,7 @@
             <div class="testimony overflow-auto" id="testimony">
                 <h4>Past reviews from <img width="100" alt="STEWBIE" src="assets/img/STEWBIE.png"> members</h4>
 
+<<<<<<< HEAD
                 <div class="reviews">
                     <div class="row align-items-start mb-2" *ngFor="let rating of ratings">
                         <div class="col-first-review col-4">
@@ -136,6 +137,38 @@
                             <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
                         </div>
                     </div>
+=======
+        <div class="reviews">
+          <div class="row align-items-start mb-2" *ngFor="let rating of ratings">
+            <div class="col-first-review col-4">
+              {{ rating.review }} - {{rating.name}}
+            </div>
+            <div class="col-second-review col-8">
+              {{rating.location}}:
+              <!-- {{rating.adventure}} -->
+              <ng-container *ngFor="let i of [].constructor(rating.adventure)"><img width="20" alt="mountain_peak" src="assets/img/mountain_peak.png"></ng-container>
+              <!-- {{rating.budget}} -->
+              <ng-container *ngFor="let i of [].constructor(rating.budget)"><img width="20" alt="dollar_sign" src="assets/img/money.png"></ng-container>
+              <!-- {{rating.dodos}} -->
+              <ng-container *ngFor="let i of [].constructor(rating.dodos)"><img width="20" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg"></ng-container>
+              <!-- {{rating.transportation}} -->
+              <ng-container *ngFor="let i of [].constructor(rating.transportation)">
+                <img *ngIf="rating.transportation.includes('bus')" width="20" alt="public transportation" src="assets/img/busimg.png">
+                <img *ngIf="rating.transportation.includes('car')" width="20" alt="car" src="assets/img/car.png">
+                <img *ngIf="rating.transportation.includes('walking')" width="20" alt="walking" src="assets/img/walking.jpg">
+              </ng-container>
+              {{rating.culture}}
+              <ng-container *ngFor="let i of [].constructor(rating.culture)">
+                <img *ngIf="rating.culture.includes('cathedral')" width="20" alt="cathedral" src="assets/img/cathedral.jpg">
+                <img *ngIf="rating.culture.includes('art')" width="20" alt="art" src="assets/img/art.png">
+                <img *ngIf="rating.culture.includes('food')" width="20" alt="food" src="assets/img/food.jpg">
+                <img *ngIf="rating.culture.includes('music')" width="20" alt="music" src="assets/img/music.png">
+              </ng-container>
+
+            </div>
+          </div>
+
+>>>>>>> 04394451a1b363e1033be4acf674eb477a1386c1
 
                 </div>
             </div>

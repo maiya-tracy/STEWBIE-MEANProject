@@ -27,10 +27,10 @@ app.use(bodyParser.json({
 
 var RatingSchema = new mongoose.Schema({
   adventure: {
-    type: String
+    type: Number
   },
   budget: {
-    type: String
+    type: Number
   },
   transportation: {
     type: Array
@@ -39,7 +39,7 @@ var RatingSchema = new mongoose.Schema({
     type: Array
   },
   dodos: {
-    type: String
+    type: Number
   },
   review: {
     type: String,
