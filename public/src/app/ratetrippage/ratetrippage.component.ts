@@ -9,15 +9,23 @@ import { HttpService } from '../http.service';
 })
 export class RatetrippageComponent implements OnInit {
 
-  newRating = { adventure: "", budget: "", transportation: [], culture: [], dodos: "", review: ""};
-  postErrors = { adventure: "", budget: "", transportation: "", culture: "", dodos: "", review: ""};
+  newRating = { adventure: "", budget: "", transportation: [], culture: [], dodos: "", review: "", name: "", location: ""};
+  ratings = [];
+  postErrors = { adventure: "", budget: "", transportation: "", culture: "", dodos: "", review: "", name: "", location: ""};
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _httpService: HttpService) { }
 
   ngOnInit() {
+    this.getRatingFromService();
   }
-  submitrating(): void {
-    this.postErrors = { adventure: "", budget: "", transportation: "", culture: "", dodos: "", review: ""};
+  getRatingFromService() {
+      this._httpService.getRatings().subscribe(data => {
+        console.log("got ratings", data)
+        this.ratings = data['data'];
+      })
+  }
+  submitRating(): void {
+    this.postErrors = { adventure: "", budget: "", transportation: "", culture: "", dodos: "", review: "", name: "", location: ""};
     this._httpService.addReview(this.newRating).subscribe(data => {
       if (data['error']) {
         console.log("error creating rating", data)
@@ -25,7 +33,7 @@ export class RatetrippageComponent implements OnInit {
         if (data['error']['errors']['budget']) { this.postErrors['budget'] = data['error']['errors']['budget']['message'] }
       } else {
         console.log("added rating", data);
-        this.newRating = { adventure: "", budget: "", transportation: [], culture: [], dodos: "", review: ""};
+        this.newRating = { adventure: "", budget: "", transportation: [], culture: [], dodos: "", review: "", name: "", location: ""};
         this._router.navigate(['/rating']);
       }
     })

@@ -28,34 +28,30 @@ app.use(bodyParser.json({
 var RatingSchema = new mongoose.Schema({
   adventure: {
     type: String
-    // required: [true, "Must enter a restaurant"],
-    // minlength: [3, "Name must be longer than 3 characters"],
-    // unique: true
   },
   budget: {
     type: String
-    // required: [true, "Must enter a cuisine type"],
-    // minlength: [3, "Cuisine must be longer than 3 characters"]
   },
   transportation: {
     type: Array
-    // required: [true, "Must enter a cuisine type"],
-    // minlength: [3, "Cuisine must be longer than 3 characters"]
   },
   culture: {
     type: Array
-    // required: [true, "Must enter a cuisine type"],
-    // minlength: [3, "Cuisine must be longer than 3 characters"]
   },
   dodos: {
     type: String
-    // required: [true, "Must enter a cuisine type"],
-    // minlength: [3, "Cuisine must be longer than 3 characters"]
   },
   review: {
-    type: String
-    // required: [true, "Must enter a cuisine type"],
-    // minlength: [3, "Cuisine must be longer than 3 characters"]
+    type: String,
+    required: [true, "Must enter a review"]
+  },
+  name: {
+    type: String,
+    required: [true, "Must enter your name"]
+  },
+  location: {
+    type: String,
+    required: [true, "Must enter a location"]
   },
 }, {
   timestamps: true
@@ -66,7 +62,7 @@ var Rating = mongoose.model('Rating');
 
 
 
-app.post('/submitrating', (req, res) => {
+app.post('/ratings', (req, res) => {
   Rating.create(req.body, (err, ratings) => {
     if (err) {
       console.log("Returned error", err);
@@ -82,8 +78,37 @@ app.post('/submitrating', (req, res) => {
     }
   })
 })
-
-
+app.get('/ratings', (req, res) => {
+  Rating.find({}, (err, ratings) => {
+    if (err) {
+      console.log("Returned error", err);
+      res.json({
+        message: "Error",
+        error: err
+      })
+    } else {
+      res.json({
+        message: "Success",
+        data: ratings
+      })
+    }
+  })
+})
+app.delete('/ratings/:id', (req, res) => {
+  Rating.findByIdAndRemove(req.params.id, (err) => {
+    if (err) {
+      console.log("Returned error", err);
+      res.json({
+        message: "Error",
+        error: err
+      })
+    } else {
+      res.json({
+        message: "Success"
+      })
+    }
+  })
+})
 
 
 //

@@ -9,7 +9,10 @@ export class HttpService {
   constructor(private _http: HttpClient) { }
 
 addReview(new_review) {
-  return this._http.post('/submitrating', new_review)
+  return this._http.post('/ratings', new_review)
+}
+getRatings() {
+  return this._http.get('/ratings')
 }
 
 getPlaces(search_bar) {
@@ -29,8 +32,6 @@ getYelp() {
 getSygic() {
   return this._http.get('')
 }
-
-
 
 
   // addRestaurant(newRestaurant) {
