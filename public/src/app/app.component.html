@@ -13,8 +13,8 @@
   <div class="container">
     <div style="text-align:center">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" [routerLink]="['/']"><img width="50" alt="Dodo bird"
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFC027;">
+        <a class="navbar-brand" [routerLink]="['/']"><img width="50" alt="Dodo bird" id="logo_dodo"
             src="/assets/img/logo_dodo.jpg"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,9 +49,11 @@
       <div class="box">
         <router-outlet></router-outlet>
         <!-- Footer -->
-        <footer class="bg-light copyright">
-          <p class="text-center text-black mt-3">Copyright &copy; STEWBIE 2019</p>
-        </footer>
+        <footer class="footer text-faded text-center py-5 copyright">
+            <div class="container">
+              <p class="m-0 small">Copyright &copy; STEWBIE 2019</p>
+            </div>
+          </footer>        
       </div>
 
     </div>
