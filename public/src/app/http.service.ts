@@ -8,6 +8,10 @@ export class HttpService {
 
   constructor(private _http: HttpClient) { }
 
+addReview(new_review) {
+  return this._http.post('/submitrating', new_review)
+}
+
 getPlaces(search_bar) {
   return this._http.post('/places', search_bar)
 }

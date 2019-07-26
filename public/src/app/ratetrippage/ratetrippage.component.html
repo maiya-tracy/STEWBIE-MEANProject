@@ -1,114 +1,109 @@
 <div class="container">
-    <div class="row">
-        <div id="rate_your_trip" class="col rate_your_trip">
+  <div class="row">
+    <div id="rate_your_trip" class="col rate_your_trip">
+      <form (submit)="submitrating()">
+        <div class="rate_card">
+          <h1>Rate Your Trip</h1>
+          <h2>Adventure:
+            <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png" (click)="setAdventure(1)">
+            <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png" (click)="setAdventure(2)">
+            <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png" (click)="setAdventure(3)">
+            <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png" (click)="setAdventure(4)">
+            <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png" (click)="setAdventure(5)">
+          </h2>
 
-            <div class="rate_card">
-                <h1>Rate Your Trip</h1>
-                <h2>Adventure:
-                    <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png">
-                    <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png">
-                    <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png">
-                    <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png">
-                    <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png">
-                </h2>
+          <h2>Budget:
+            <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(1)">
+            <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(2)">
+            <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(3)">
+            <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(4)">
+            <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(5)">
+          </h2>
 
-                <h2>Budget:
-                    <img width="30" alt="dollar_sign" src="assets/img/dollar_sign_stationary.jpg">
-                    <img width="30" alt="dollar_sign" src="assets/img/dollar_sign_stationary.jpg">
-                    <img width="30" alt="dollar_sign" src="assets/img/dollar_sign_stationary.jpg">
-                    <img width="30" alt="dollar_sign" src="assets/img/dollar_sign_stationary.jpg">
-                    <img width="30" alt="dollar_sign" src="assets/img/dollar_sign_stationary.jpg">
-                </h2>
+          <h2>Transportation:
+            <img width="30" alt="public transportation" src="assets/img/busimg.png" (click)="setTransportation('bus')">
+            <img width="30" alt="car" src="assets/img/car.png" (click)="setTransportation('car')">
+            <img width="30" alt="walking" src="assets/img/walking.jpg" (click)="setTransportation('walking')">
+          </h2>
 
-                <h2>Transportation:
-                    <img width="30" alt="bus" src="assets/img/bus.jpg">
-                    <img width="30" alt="bus" src="assets/img/bus.jpg">
-                    <img width="30" alt="bus" src="assets/img/bus.jpg">
-                    <img width="30" alt="bus" src="assets/img/bus.jpg">
-                    <img width="30" alt="bus" src="assets/img/bus.jpg">
-                </h2>
-
-                <h2>"Culture":
-                    <img width="30" alt="cathedral" src="assets/img/cathedral.jpg">
-                    <img width="30" alt="cathedral" src="assets/img/cathedral.jpg">
-                    <img width="30" alt="cathedral" src="assets/img/cathedral.jpg">
-                    <img width="30" alt="cathedral" src="assets/img/cathedral.jpg">
-                    <img width="30" alt="cathedral" src="assets/img/cathedral.jpg">
-                </h2>
+          <h2>"Culture":
+            <img width="30" alt="cathedral" src="assets/img/cathedral.jpg" (click)="setCulture('cathedral')">
+            <img width="30" alt="art" src="assets/img/art.png" (click)="setCulture('art')">
+            <img width="30" alt="food" src="assets/img/food.jpg" (click)="setCulture('food')">
+            <img width="30" alt="music" src="assets/img/music.png" (click)="setCulture('music')">
+          </h2>
 
 
-                <h2>Dodos:
-                    <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                    <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                    <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                    <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                    <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                </h2>
+          <h2>Dodos:
+            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(1)">
+            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(2)">
+            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(3)">
+            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(4)">
+            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(5)">
+          </h2>
+          <input class="form-control mr-sm-2" [(ngModel)]="newRating.review" name="newRating.review" placeholder="Let us know about your trip in one line!" aria-label="Search">
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Leave a Review</button>
 
-            </div>
         </div>
-        <div class="col">
-            <div class="testimony" id="testimony">
-                <h4>Past reviews from <img width="100" alt="STEWBIE" src="assets/img/STEWBIE.png"> members</h4>
-
-                <div class="reviews">
-                    <div class="row align-items-start mb-2">
-                        <div class="col-first-review col-4">
-                            "The trails were BEAUTIFUL!"-Greg C.
-                        </div>
-                        <div class="col-second-review col-8">
-                            Portland:
-                            <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png">
-                            <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png">
-                            <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png">
-                            <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-cente mb-2">
-                        <div class="col-first-review col-4">
-                            "Gorgeous architecture."-Kaysee
-                        </div>
-                        <div class="col-second-review col-8">
-                            Barcelona:
-                            <img width="30" alt="cathedral" src="assets/img/cathedral.jpg">
-                            <img width="30" alt="cathedral" src="assets/img/cathedral.jpg">
-                            <img width="30" alt="cathedral" src="assets/img/cathedral.jpg">
-                            <img width="30" alt="cathedral" src="assets/img/cathedral.jpg">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-end mb-2">
-                        <div class="col-first-review col-4">
-                            "GET A RENTAL CAR!" -Devon P.
-                        </div>
-                        <div class="col-second-review col-8">
-                            Los Angeles:
-                            <img width="30" alt="bus" src="assets/img/bus.jpg">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-end mb-2">
-                        <div class="col-first-review col-4">
-                            "Hurry and visit this ancient city!"-Justin D.
-                        </div>
-                        <div class="col-second-review col-8">
-                            Machu Picchu:
-                            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+      </form>
     </div>
+    <div class="col">
+      <div class="testimony" id="testimony">
+        <h4>Past reviews from <img width="100" alt="STEWBIE" src="assets/img/STEWBIE.png"> members</h4>
 
-    <form class="form-inline mt-2 my-2 my-lg-0">
-        <input class="form-control mr-sm-2 col-6" type="textarea" placeholder="Let us know about your trip in one line!" aria-label="Search">
-        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Leave a Review</button>
-    </form>
+        <div class="reviews">
+          <div class="row align-items-start mb-2">
+            <div class="col-first-review col-4">
+              "The trails were BEAUTIFUL!"-Greg C.
+            </div>
+            <div class="col-second-review col-8">
+              Portland:
+              <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png">
+              <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png">
+              <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png">
+              <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png">
+            </div>
+          </div>
+
+          <div class="row align-items-cente mb-2">
+            <div class="col-first-review col-4">
+              "Gorgeous architecture."-Kaysee
+            </div>
+            <div class="col-second-review col-8">
+              Barcelona:
+              <img width="30" alt="cathedral" src="assets/img/cathedral.jpg">
+              <img width="30" alt="cathedral" src="assets/img/cathedral.jpg">
+              <img width="30" alt="cathedral" src="assets/img/cathedral.jpg">
+              <img width="30" alt="cathedral" src="assets/img/cathedral.jpg">
+            </div>
+          </div>
+
+          <div class="row align-items-end mb-2">
+            <div class="col-first-review col-4">
+              "GET A RENTAL CAR!" -Devon P.
+            </div>
+            <div class="col-second-review col-8">
+              Los Angeles:
+              <img width="30" alt="bus" src="assets/img/bus.jpg">
+            </div>
+          </div>
+
+          <div class="row align-items-end mb-2">
+            <div class="col-first-review col-4">
+              "Hurry and visit this ancient city!"-Justin D.
+            </div>
+            <div class="col-second-review col-8">
+              Machu Picchu:
+              <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
+              <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
+              <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
+              <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
+              <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
