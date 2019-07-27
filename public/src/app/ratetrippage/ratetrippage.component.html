@@ -1,177 +1,108 @@
 <div class="container">
-    <div class="row">
-        <div id="rate_your_trip" class="col rate_your_trip">
-            <form (submit)="submitRating()">
-                <div class="rate_card">
-                    <h1>Rate Your Trip</h1>
-                    <input class="form-control mr-sm-2" [(ngModel)]="newRating.location" name="newRating.location"
-                        placeholder="Where did you go?" aria-label="Search">
-                    <h2>Adventure:
-                        <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png"
-                            (click)="setAdventure(1)">
-                        <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png"
-                            (click)="setAdventure(2)">
-                        <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png"
-                            (click)="setAdventure(3)">
-                        <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png"
-                            (click)="setAdventure(4)">
-                        <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png"
-                            (click)="setAdventure(5)">
-                    </h2>
+  <div class="row">
+    <div id="rate_your_trip" class="col rate_your_trip">
+      <form (submit)="submitRating()">
+        <div class="rate_card">
+          <h1>Rate Your Trip</h1>
+          <input class="form-control mr-sm-2" [(ngModel)]="newRating.location" name="newRating.location" placeholder="Where did you go?" aria-label="Search">
+          <h2>Adventure:
+            <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png" (click)="setAdventure(1)">
+            <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png" (click)="setAdventure(2)">
+            <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png" (click)="setAdventure(3)">
+            <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png" (click)="setAdventure(4)">
+            <img width="30" alt="mountain_peak" src="assets/img/mountain_peak.png" (click)="setAdventure(5)">
+          </h2>
 
-                    <h2>Budget:
-                        <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(1)">
-                        <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(2)">
-                        <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(3)">
-                        <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(4)">
-                        <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(5)">
-                    </h2>
+          <h2>Budget:
+            <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(1)">
+            <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(2)">
+            <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(3)">
+            <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(4)">
+            <img width="30" alt="dollar_sign" src="assets/img/money.png" (click)="setBudget(5)">
+          </h2>
 
-                    <h2>Transportation:
-                        <img width="30" alt="public transportation" src="assets/img/busimg.png"
-                            (click)="setTransportation('bus')">
-                        <img width="30" alt="car" src="assets/img/car.png" (click)="setTransportation('car')">
-                        <img width="30" alt="walking" src="assets/img/walking.jpg"
-                            (click)="setTransportation('walking')">
-                    </h2>
+          <h2>Transportation:
+            <img width="30" alt="public transportation" src="assets/img/busimg.png" (click)="setTransportation('bus')">
+            <img width="30" alt="car" src="assets/img/car.png" (click)="setTransportation('car')">
+            <img width="30" alt="walking" src="assets/img/walking.jpg" (click)="setTransportation('walking')">
+          </h2>
 
-                    <h2>"Culture":
-                        <img width="30" alt="cathedral" src="assets/img/cathedral.jpg"
-                            (click)="setCulture('cathedral')">
-                        <img width="30" alt="art" src="assets/img/art.png" (click)="setCulture('art')">
-                        <img width="30" alt="food" src="assets/img/food.jpg" (click)="setCulture('food')">
-                        <img width="30" alt="music" src="assets/img/music.png" (click)="setCulture('music')">
-                    </h2>
+          <h2>"Culture":
+            <img width="30" alt="cathedral" src="assets/img/cathedral.jpg" (click)="setCulture('cathedral')">
+            <img width="30" alt="art" src="assets/img/art.png" (click)="setCulture('art')">
+            <img width="30" alt="food" src="assets/img/food.jpg" (click)="setCulture('food')">
+            <img width="30" alt="music" src="assets/img/music.png" (click)="setCulture('music')">
+          </h2>
 
 
-                    <h2>Dodos:
-                        <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(1)">
-                        <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(2)">
-                        <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(3)">
-                        <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(4)">
-                        <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(5)">
-                    </h2>
-                    <input class="form-control mr-sm-2" [(ngModel)]="newRating.review" name="newRating.review"
-                        placeholder="Let us know about your trip in one line!" aria-label="Search">
-                    <input class="form-control mr-sm-2" [(ngModel)]="newRating.name" name="newRating.name"
-                        placeholder="Your name" aria-label="Search">
-                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Leave a Review</button>
-                </div>
-            </form>
+          <h2>Dodos:
+            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(1)">
+            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(2)">
+            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(3)">
+            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(4)">
+            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg" (click)="setDodos(5)">
+          </h2>
+          <input class="form-control mr-sm-2" [(ngModel)]="newRating.review" name="newRating.review" placeholder="Let us know about your trip in one line!" aria-label="Search">
+          <input class="form-control mr-sm-2" [(ngModel)]="newRating.name" name="newRating.name" placeholder="Your name" aria-label="Search">
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Leave a Review</button>
         </div>
-        <div class="col">
-            <div class="testimony overflow-auto" id="testimony">
-                <h4>Past reviews from <img width="100" alt="STEWBIE" src="assets/img/STEWBIE.png"> members</h4>
+      </form>
+    </div>
+    <div class="col">
+      <div class="testimony overflow-auto" id="testimony">
+        <h4>Past reviews from <img width="100" alt="STEWBIE" src="assets/img/STEWBIE.png"> members</h4>
 
-<<<<<<< HEAD
-                <div class="reviews">
-                    <div class="row align-items-start mb-2" *ngFor="let rating of ratings">
-                        <div class="col-first-review col-4">
-                            "{{ rating.review }}" - {{ rating.name }}
-                        </div>
-                        <div class="col-second-review col-8">
-                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        {{ rating.location }}:
-                                        {{ rating.adventure }}
-                                    </div>
-                                    <div class="carousel-item">
-                                        {{ rating.location }}:
-                                        {{ rating.budget }}
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-item">
-                                            {{ rating.location }}:
-                                            {{ rating.transportation }}
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-item">
-                                            {{ rating.location }}:
-                                            {{ rating.culture }}
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-item">
-                                            {{ rating.location }}:
-                                            {{ rating.dodos }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                    data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                    data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row align-items-end mb-2">
-                        <div class="col-first-review col-4">
-                            "GET A RENTAL CAR!" -Devon P.
-                        </div>
-                        <div class="col-second-review col-8">
-                            Los Angeles:
-                            <img width="30" alt="bus" src="assets/img/bus.jpg">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-end mb-2">
-                        <div class="col-first-review col-4">
-                            "Hurry and visit this ancient city!"-Justin D.
-                        </div>
-                        <div class="col-second-review col-8">
-                            Machu Picchu:
-                            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                            <img width="30" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg">
-                        </div>
-                    </div>
-=======
         <div class="reviews">
           <div class="row align-items-start mb-2" *ngFor="let rating of ratings">
             <div class="col-first-review col-4">
-              {{ rating.review }} - {{rating.name}}
+              "{{ rating.review }}" - {{ rating.name }}
             </div>
             <div class="col-second-review col-8">
-              {{rating.location}}:
-              <!-- {{rating.adventure}} -->
-              <ng-container *ngFor="let i of [].constructor(rating.adventure)"><img width="20" alt="mountain_peak" src="assets/img/mountain_peak.png"></ng-container>
-              <!-- {{rating.budget}} -->
-              <ng-container *ngFor="let i of [].constructor(rating.budget)"><img width="20" alt="dollar_sign" src="assets/img/money.png"></ng-container>
-              <!-- {{rating.dodos}} -->
-              <ng-container *ngFor="let i of [].constructor(rating.dodos)"><img width="20" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg"></ng-container>
-              <!-- {{rating.transportation}} -->
-              <ng-container *ngFor="let i of [].constructor(rating.transportation)">
-                <img *ngIf="rating.transportation.includes('bus')" width="20" alt="public transportation" src="assets/img/busimg.png">
-                <img *ngIf="rating.transportation.includes('car')" width="20" alt="car" src="assets/img/car.png">
-                <img *ngIf="rating.transportation.includes('walking')" width="20" alt="walking" src="assets/img/walking.jpg">
-              </ng-container>
-              <!-- {{rating.culture}} -->
-              <ng-container *ngFor="let i of [].constructor(rating.culture)">
-                <img *ngIf="rating.culture.includes('cathedral')" width="20" alt="cathedral" src="assets/img/cathedral.jpg">
-                <img *ngIf="rating.culture.includes('art')" width="20" alt="art" src="assets/img/art.png">
-                <img *ngIf="rating.culture.includes('food')" width="20" alt="food" src="assets/img/food.jpg">
-                <img *ngIf="rating.culture.includes('music')" width="20" alt="music" src="assets/img/music.png">
-              </ng-container>
-
+              <div id="carousel-{{rating._id}}" class="carousel slide" data-interval="false" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    {{ rating.location }}:
+                    <ng-container *ngFor="let i of [].constructor(rating.adventure)"><img width="20" alt="mountain_peak" src="assets/img/mountain_peak.png"></ng-container>
+                  </div>
+                  <div class="carousel-item">
+                    {{ rating.location }}:
+                    <ng-container *ngFor="let i of [].constructor(rating.budget)"><img width="20" alt="dollar_sign" src="assets/img/money.png"></ng-container>
+                  </div>
+                  <div class="carousel-item">
+                      {{ rating.location }}:
+                      <ng-container *ngFor="let i of [].constructor(rating.transportation)">
+                        <img *ngIf="rating.transportation.includes('bus')" width="20" alt="public transportation" src="assets/img/busimg.png">
+                        <img *ngIf="rating.transportation.includes('car')" width="20" alt="car" src="assets/img/car.png">
+                        <img *ngIf="rating.transportation.includes('walking')" width="20" alt="walking" src="assets/img/walking.jpg">
+                      </ng-container>
+                  </div>
+                  <div class="carousel-item">
+                      {{ rating.location }}:
+                      <ng-container *ngFor="let i of [].constructor(rating.culture)">
+                        <img *ngIf="rating.culture.includes('cathedral')" width="20" alt="cathedral" src="assets/img/cathedral.jpg">
+                        <img *ngIf="rating.culture.includes('art')" width="20" alt="art" src="assets/img/art.png">
+                        <img *ngIf="rating.culture.includes('food')" width="20" alt="food" src="assets/img/food.jpg">
+                        <img *ngIf="rating.culture.includes('music')" width="20" alt="music" src="assets/img/music.png">
+                      </ng-container>
+                  </div>
+                  <div class="carousel-item">
+                      {{ rating.location }}:
+                      <ng-container *ngFor="let i of [].constructor(rating.dodos)"><img width="20" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg"></ng-container>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carousel-{{rating._id}}" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-{{rating._id}}" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
             </div>
           </div>
-
->>>>>>> 04394451a1b363e1033be4acf674eb477a1386c1
-
-                </div>
-            </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
