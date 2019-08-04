@@ -1,63 +1,98 @@
-<div class="row header">
-    <h2>Where to?</h2>
-    <form (submit)="submitForm()" class="form-inline">
-        <div class="col submit">
-            <input type="text" class="form-control col-6 mb-2" placeholder="City" name="city_name"
-                [(ngModel)]="city_name" />
-            <button type="submit" class="btn btn-success btn-go ml-3">Let's Go!</button>
-        </div>
-    </form>
-</div>
-
-<section class="pricing py-5">
-    <div class="container">
-        <div class="row">
-            <!-- Free Tier -->
-            <div class="col-lg-4">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Attractions</h5>
-                        <h6 class="card-price text-center">TO DO<span class="period"></span></h6>
-                        <img height="150" alt="Sygic_api" src="/assets/img/attractions_test.png">
-                        <hr>
-
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
-                    </div>
-                </div>
+<div class="mastercontainer">
+    <div class="row header">
+        <h2>Where to?</h2>
+        <form (submit)="getWeather()" class="form-inline">
+            <div class="col submit">
+                <input type="text" class="form-control col-6 mb-2" placeholder="City" name="city_name"
+                    [(ngModel)]="city_name" />
+                <button type="submit" class="btn btn-success btn-go ml-3">Let's Go!</button>
             </div>
-            <!-- Plus Tier -->
-            <div class="col-lg-4">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Tours & Activities</h5>
-                        <h6 class="card-price text-center">TO SEE<span class="period"></span></h6>
-                        <img height="150" alt="Sygic_api" src="/assets/img/tours.png">
-                        <hr>
-
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Pro Tier -->
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Flights</h5>
-                        <h6 class="card-price text-center">LET'S GO<span class="period"></span></h6>
-                        <img height="150" alt="Sygic_api" src="/assets/img/on_the_go_dodo.jpg">
-                        <hr>
-
-                        <a href="#" class="btn btn-block btn-info text-uppercase">Button</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
-</section>
 
-<div class="container">
-    <div class="top">
+    <section class="pricing py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Free Tier -->
+                <div class="col-lg-4">
+                    <div class="card mb-5 mb-lg-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-muted text-uppercase text-center">Attractions</h5>
+                            <h6 class="card-price text-center">TO DO<span class="period"></span></h6>
+                            <img height="150" alt="Sygic_api" src="/assets/img/attractions_test.png">
+                            <hr>
 
+                            <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Plus Tier -->
+                <div class="col-lg-4">
+                    <div class="card mb-5 mb-lg-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-muted text-uppercase text-center">Tours & Activities</h5>
+                            <h6 class="card-price text-center">TO SEE<span class="period"></span></h6>
+                            <img height="150" alt="Sygic_api" src="/assets/img/tours.png">
+                            <hr>
+
+                            <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pro Tier -->
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-muted text-uppercase text-center">Flights</h5>
+                            <h6 class="card-price text-center">LET'S GO<span class="period"></span></h6>
+                            <img height="150" alt="Sygic_api" src="/assets/img/on_the_go_dodo.jpg">
+                            <hr>
+
+                            <a href="#" class="btn btn-block btn-info text-uppercase">Button</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        <h2>When would you like to go?</h2>
+                    </th>
+                    <th scope="col">
+                        <form class="col form-inline my-2 my-lg-0">
+                            From: <input class="form-control col-4 mb-2 date" type="date"> Until: <input
+                                class="form-control col-4 mb-2 date" type="date">
+                            <button class="btn btn-outline-info ml-2 my-2 my-sm-0" type="submit">Go!</button>
+                        </form>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        <h2>Current Weather Forecast:</h2>
+                    </th>
+                    <td>
+                        <div class="col form-inline">
+                            Condition: <div id="input_box" class="col-4">{{ weather.description }}</div> Temperature: <div
+                                id="input_box" class="col-4">{{ weather.temperature }}</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        Why not go now? <img height="50" alt="logo_dodo_zoom" src="/assets/img/logo_dodo_zoom.jpg">
+                    </th>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
 
     </div>
 

@@ -1,5 +1,9 @@
+.mastercontainer{
+    background-color: #FFD93E;
+}
+
 section.pricing {
-    background: blue;
+    background: #F89B24;
     background: linear-gradient(to right #F89B24, #FFC027, #FFD93E);
   }
   
@@ -60,11 +64,6 @@ section.pricing {
   }
 
 
-
-.container{
-    padding-top: 10pt;
-}
-
 .header{
     margin-left: 30%;
 }
@@ -106,6 +105,7 @@ section.pricing {
 .footer{
     height: 80px;
     margin-top: 25pt;
+    background-color: #FFD93E;
 }
 
 .date{
