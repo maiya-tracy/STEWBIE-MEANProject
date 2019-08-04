@@ -103,7 +103,7 @@ section.pricing {
 }
 
 .footer{
-    height: 80px;
+    min-height: 80px;
     margin-top: 25pt;
     background-color: #FFD93E;
 }

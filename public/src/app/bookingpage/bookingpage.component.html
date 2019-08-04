@@ -1,3 +1,22 @@
+<script>
+
+    $(document).ready(function () {
+      $("img").hide();
+
+      $(".btn-primary").click(function () {
+        $("img").show();
+        console.log("button clicked");
+
+        $(".btn-success").click(function () {
+          $("img").hide();
+
+        })
+
+      })
+
+    })
+
+  </script>
 <div class="mastercontainer">
     <div class="row header">
         <h2>Where to?</h2>
@@ -87,7 +106,7 @@
                 </tr>
                 <tr>
                     <th scope="row">
-                        Why not go now? <img height="50" alt="logo_dodo_zoom" src="/assets/img/logo_dodo_zoom.jpg">
+                        <p>Why not go now? <img height="50" alt="logo_dodo_zoom" src="/assets/img/logo_dodo_zoom.jpg"></p>
                     </th>
                     <td></td>
                 </tr>

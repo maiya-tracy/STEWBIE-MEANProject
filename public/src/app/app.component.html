@@ -6,6 +6,7 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
 <body>
@@ -15,7 +16,7 @@
 
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #1B3849">
         <a class="navbar-brand" [routerLink]="['/']"><img width="50" alt="Dodo bird" id="logo_dodo"
-            src="/assets/img/logo_dodo.jpg"></a>
+            src="/assets/img/logo_dodo_white.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -41,7 +42,7 @@
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2 search" type="search" placeholder="Where to?" aria-label="Search">
-            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Where To?</button>
+            <a class="nav-link" href="/booking"><button class="btn btn-outline-info my-2 my-sm-0" type="submit">Where To?</button></a>
           </form>
         </div>
       </nav>
@@ -49,11 +50,11 @@
       <div class="box">
         <router-outlet></router-outlet>
         <!-- Footer -->
-        <footer class="footer text-faded text-center py-5 copyright">
-            <div class="container">
-              <p class="m-0 small">Copyright &copy; STEWBIE 2019</p>
-            </div>
-          </footer>
+        <footer class="footer text-faded text-center mt-2 py-2 copyright">
+          <div class="container">
+            <p class="m-0 small">Copyright &copy; STEWBIE 2019</p>
+          </div>
+        </footer>
       </div>
 
     </div>
