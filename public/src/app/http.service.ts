@@ -14,6 +14,9 @@ addReview(new_review) {
 getRatings() {
   return this._http.get('/ratings')
 }
+getCityRatings(city_name) {
+  return this._http.get(`/ratings/city`, city_name)
+}
 
 getPlaces(search_bar) {
   return this._http.post('/places', search_bar)

@@ -1,6 +1,6 @@
 <div class="row header">
     <h2>Where to?</h2>
-    <form (submit)="getWeather()" class="form-inline">
+    <form (submit)="submitForm()" class="form-inline">
         <div class="col submit">
             <input type="text" class="form-control col-6 mb-2" placeholder="City" name="city_name"
                 [(ngModel)]="city_name" />
@@ -94,4 +94,58 @@
             </tr>
         </tbody>
     </table>
+
+
+    <div class="reviews">
+      <div class="row align-items-start mb-2" *ngFor="let rating of ratings">
+        <div class="col-first-review col-4">
+          "{{ rating.review }}" - {{ rating.name }}
+        </div>
+        <div class="col-second-review col-8">
+          <div id="carousel-{{rating._id}}" class="carousel slide" data-interval="false" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                {{ rating.location }}:
+                <ng-container *ngFor="let i of [].constructor(rating.adventure)"><img width="20" alt="mountain_peak" src="assets/img/mountain_peak.png"></ng-container>
+              </div>
+              <div class="carousel-item">
+                {{ rating.location }}:
+                <ng-container *ngFor="let i of [].constructor(rating.budget)"><img width="20" alt="dollar_sign" src="assets/img/money.png"></ng-container>
+              </div>
+              <div class="carousel-item">
+                  {{ rating.location }}:
+                  <ng-container *ngFor="let i of [].constructor(rating.transportation)">
+                    <img *ngIf="rating.transportation.includes('bus')" width="20" alt="public transportation" src="assets/img/busimg.png">
+                    <img *ngIf="rating.transportation.includes('car')" width="20" alt="car" src="assets/img/car.png">
+                    <img *ngIf="rating.transportation.includes('walking')" width="20" alt="walking" src="assets/img/walking.jpg">
+                  </ng-container>
+              </div>
+              <div class="carousel-item">
+                  {{ rating.location }}:
+                  <ng-container *ngFor="let i of [].constructor(rating.culture)">
+                    <img *ngIf="rating.culture.includes('cathedral')" width="20" alt="cathedral" src="assets/img/cathedral.jpg">
+                    <img *ngIf="rating.culture.includes('art')" width="20" alt="art" src="assets/img/art.png">
+                    <img *ngIf="rating.culture.includes('food')" width="20" alt="food" src="assets/img/food.jpg">
+                    <img *ngIf="rating.culture.includes('music')" width="20" alt="music" src="assets/img/music.png">
+                  </ng-container>
+              </div>
+              <div class="carousel-item">
+                  {{ rating.location }}:
+                  <ng-container *ngFor="let i of [].constructor(rating.dodos)"><img width="20" alt="dodo_logo" src="assets/img/logo_dodo_zoom.jpg"></ng-container>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carousel-{{rating._id}}" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-{{rating._id}}" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 </div>

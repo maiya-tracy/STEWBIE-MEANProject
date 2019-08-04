@@ -94,6 +94,22 @@ app.get('/ratings', (req, res) => {
     }
   })
 })
+app.get('/ratings/city', (req, res) => {
+  Rating.findOne({location: new RegExp('^'+city_name+'$', "i")}, (err, ratings) => {
+    if (err) {
+      console.log("Returned error", err);
+      res.json({
+        message: "Error",
+        error: err
+      })
+    } else {
+      res.json({
+        message: "Success",
+        data: ratings
+      })
+    }
+  })
+})
 app.delete('/ratings/:id', (req, res) => {
   Rating.findByIdAndRemove(req.params.id, (err) => {
     if (err) {
