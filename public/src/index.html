@@ -15,6 +15,27 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
+
+  <script>
+
+    $(document).ready(function () {
+      $(".img-talk").hide();
+
+      $(".img-logo").click(function () {
+        $(".img-talk").show();
+        console.log("button clicked");
+
+        $(".img-logo").click(function () {
+          $(".img-talk").hide();
+
+        })
+
+      })
+
+    })
+
+  </script>
+
 </head>
 
 <body>
@@ -31,7 +52,7 @@
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
-    $("img-talk").click(function () {
-        $(this).slideUp();
-    });
+  $("img-talk").click(function () {
+    $(this).slideUp();
+  });
 </script>
