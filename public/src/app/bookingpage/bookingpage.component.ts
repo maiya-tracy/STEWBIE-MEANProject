@@ -23,7 +23,15 @@ export class BookingpageComponent implements OnInit {
 
   submitForm() {
     this.getWeather();
-    this.getCityRatings();
+    // this.getCityRatings();
+    this.getRatingFromService();
+  }
+
+  getRatingFromService() {
+      this._httpService.getRatings().subscribe(data => {
+        console.log("got ratings", data)
+        this.ratings = data['data'];
+      })
   }
 
   getWeather() {
